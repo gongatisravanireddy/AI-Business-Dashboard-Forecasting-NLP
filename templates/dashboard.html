@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Business Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        .kpi-container { display: flex; gap: 20px; }
+        .kpi-card {
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            width: 180px;
+            text-align: center;
+            box-shadow: 2px 2px 5px #ccc;
+        }
+        .charts { display: flex; gap: 40px; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+<h1>AI Business Dashboard</h1>
+
+<div class="kpi-container">
+    <div class="kpi-card">
+        <h3>Revenue</h3>
+        <p>{{ kpis.total_revenue }}</p>
+    </div>
+    <div class="kpi-card">
+        <h3>Profit</h3>
+        <p>{{ kpis.total_profit }}</p>
+    </div>
+    <div class="kpi-card">
+        <h3>Margin</h3>
+        <p>{{ kpis.profit_margin }}%</p>
+    </div>
+    <div class="kpi-card">
+        <h3>Growth</h3>
+        <p>{{ kpis.mom_growth }}%</p>
+    </div>
+</div>
+
+<h2>Model Accuracy</h2>
+<p>MAE: {{ mae }} | MAPE: {{ mape }}%</p>
+
+<div class="charts">
+    <div style="width: 400px;">
+        <canvas id="forecastChart"></canvas>
+    </div>
+    <div style="width: 400px;">
+        <canvas id="sentimentChart"></canvas>
+    </div>
+</div>
+
+<h2>AI Insights</h2>
+<ul>
+    {% for insight in insights %}
+    <li>{{ insight }}</li>
+    {% endfor %}
+</ul>
+<h2>Try Sentiment Analysis</h2>
+
+<form action="/predict_sentiment" method="POST">
+    <input type="text" name="review_text" placeholder="Enter a review" required>
+    <button type="submit">Analyze</button>
+</form>
+
+{% if prediction %}
+<p><strong>Sentiment:</strong> {{ prediction }}</p>
+{% endif %}
+
+<script>
+    const forecastData = {{ forecast | tojson }};
+    const sentimentData = {{ sentiment | tojson }};
+
+    // Forecast Line Chart
+    new Chart(document.getElementById('forecastChart'), {
+        type: 'line',
+        data: {
+            labels: ['Month 1', 'Month 2', 'Month 3'],
+            datasets: [{
+                label: 'Forecast Revenue',
+                data: forecastData,
+                fill: false,
+                tension: 0.3
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+
+    // Sentiment Pie Chart
+    new Chart(document.getElementById('sentimentChart'), {
+        type: 'pie',
+        data: {
+            labels: Object.keys(sentimentData),
+            datasets: [{
+                data: Object.values(sentimentData)
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+</script>
+
+</body>
+</html>
