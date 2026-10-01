@@ -214,3 +214,50 @@ AI-Business-Dashboard-Forecasting-NLP/
 
 └── README.md
 
+
+## Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/gongatisravanireddy/AI-Business-Dashboard-Forecasting-NLP.git
+```
+
+### 2. Navigate to the Project Folder
+
+```bash
+cd AI-Business-Dashboard-Forecasting-NLP
+```
+
+### 3. Install Required Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Download VADER Lexicon
+
+Open Python and run:
+
+```python
+import nltk
+nltk.download('vader_lexicon')
+```
+
+## How to Run
+
+Run the Flask application:
+
+```bash
+python app.py
+```
+
+The application will run at:
+
+```text
+http://127.0.0.1:5001
+```
+
+Open the above URL in your browser to view the dashboard.
+
+
