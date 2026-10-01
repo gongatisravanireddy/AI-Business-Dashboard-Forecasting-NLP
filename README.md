@@ -264,4 +264,6 @@ http://127.0.0.1:5001
 
 Open the above URL in your browser to view the dashboard.
 
+## Dashboard Preview
 
+![AI Business Dashboard](screenshots/dashboard.png)
