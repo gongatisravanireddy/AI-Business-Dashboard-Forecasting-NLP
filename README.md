@@ -168,23 +168,23 @@ AI-Business-Dashboard/
 
 ├── backend/
 
-│   ├── data\_cleaning.py
+│   ├── data_cleaning.py
 
-│   ├── forecasting\_engine.py
+│   ├── forecasting_engine.py
 
-│   ├── insight\_generator.py
+│   ├── insight_generator.py
 
-│   ├── kpi\_engine.py
+│   ├── kpi_engine.py
 
-│   └── nlp\_engine.py
+│   └── nlp_engine.py
 
 │
 
 ├── data/
 
-│   ├── reviews\_data.csv
+│   ├── reviews_data.csv
 
-│   └── sales\_data.csv
+│   └── sales_data.csv
 
 │
 
@@ -196,17 +196,17 @@ AI-Business-Dashboard/
 
 ├── app.py
 
-├── create\_reviews\_data.py
+├── create_reviews_data.py
 
-├── create\_sales\_data.py
+├── create_sales_data.py
 
-├── test\_forecast.py
+├── test_forecast.py
 
-├── test\_insights.py
+├── test_insights.py
 
-├── test\_kpi.py
+├── test_kpi.py
 
-├── test\_nlp.py
+├── test_nlp.py
 
 ├── requirements.txt
 
