@@ -162,7 +162,7 @@ The system generates insights based on:
 
 ```text
 
-AI-Business-Dashboard/
+AI-Business-Dashboard-Forecasting-NLP/
 
 │
 
